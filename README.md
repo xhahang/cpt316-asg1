@@ -62,3 +62,12 @@ cpt316-asg1/
    quit
    ```
 5. If AST visualization is enabled, a PNG file `syntax_tree.png` will be generated in the project folder.
+
+---
+
+## Team Members
+
+1. Lim Wei Ling (22306277)
+2. Ng Xuan Hern (22304061)
+3. Harini Subramaniam (22303876)
+4. Nadiah Shahirah binti Mohamad Zaki (22300068)
