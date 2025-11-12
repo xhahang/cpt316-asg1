@@ -8,22 +8,23 @@ from compiler.graph import build_graph
 
 def compile(code):
     try:
-        tokens = lexer(code)
+        tokens = lexer(code)    # tokenize input
 
     except LexicalError as e:
         print("\n" + str(e))
         print("Compilation terminated.\n")
         return None
 
+    # proceed to syntax analysis if lexical analysis is successful
     try:
         parser = Parser(tokens)
         ast = parser.stmt()  # parse one statement
         print("\nSyntax is correct!\n")
         print("Text-based Syntax Tree:")
-        print_tree(ast)      # print AST
+        print_tree(ast)      # print text-based syntax tree
         print("\n")
 
-        g = build_graph(ast)  # now ast exists
+        g = build_graph(ast)  # print syntax tree diagram
         g.attr(size="3,3!")
         g.render("syntax_tree", format="png", view=True)
         print("\n\n")
@@ -32,6 +33,7 @@ def compile(code):
         print("\n" + str(e))
         print("Compilation terminated due to syntax error.\n")
         return None
+
 def main():
   print("=" *45)
   print("Welcome to COMPY Compiler by Group 16 !")

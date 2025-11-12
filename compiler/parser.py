@@ -34,7 +34,7 @@ class Parser:
     # Grammar of COMPY Compiler
     # <stmt> → id = <expr> ;
     def stmt(self):
-        node ={'type':'stmt', 'children':[]}
+        node ={'type':'assignment', 'children':[]}
 
         idtoken = self.match('IDENTIFIER')
         node['children'].append({'type': 'id', 'value': idtoken[1], 'pos': idtoken[2]})
@@ -54,7 +54,7 @@ class Parser:
         while self.current() and self.current()[0] == 'OPERATOR' and self.current()[1] in ('+', '-'):
             optoken = self.match('OPERATOR')
             right = self.term()
-            left = {'type': 'binop', 'op': optoken[1], 'left': left, 'right': right, 'pos': optoken[2]}
+            left = {'type': 'op', 'op': optoken[1], 'left': left, 'right': right, 'pos': optoken[2]}
         return left
 
     # <term> → <factor> | <term> ‘*’ <factor> | <term> ‘/’ <factor>
@@ -63,7 +63,7 @@ class Parser:
         while self.current() and self.current()[0] == 'OPERATOR' and self.current()[1] in ('*', '/'):
             optoken = self.match('OPERATOR')
             right = self.factor()
-            left = {'type': 'binop', 'op': optoken[1], 'left': left, 'right': right, 'pos': optoken[2]}
+            left = {'type': 'op', 'op': optoken[1], 'left': left, 'right': right, 'pos': optoken[2]}
         return left
 
     # <factor> → id | int | ( <expr> )
