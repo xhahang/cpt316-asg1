@@ -61,7 +61,7 @@ cpt316-asg1/
    ```
    quit
    ```
-5. If AST visualization is enabled, a PNG file `syntax_tree.png` will be generated in the project folder.
+5. A PNG file `syntax_tree.png` will popped out and stored in the project folder.
 
 ---
 
